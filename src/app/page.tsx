@@ -4,6 +4,7 @@ import { useTopCoins } from '@/hooks/useTopCoins'
 import { useMemo, useState } from 'react'
 import { useDebounce } from '@/hooks/useDebounce'
 import { highlightSearchTerm } from '@/utils/highlightSearchTerm'
+import Link from 'next/link'
 
 export default function Home() {
   const { data, isLoading, isError } = useTopCoins()
@@ -41,7 +42,10 @@ export default function Home() {
               key={coin.id}
               className="border p-4 rounded shadow-sm hover:shadow-md transition"
             >
-              <div className="flex items-center gap-4">
+              <Link
+                href={`/coin/${coin.id}`}
+                className="flex items-center gap-4"
+              >
                 <img src={coin.image} alt={coin.name} className="w-8 h-8" />
                 <div>
                   <p className="font-semibold">
@@ -52,7 +56,7 @@ export default function Home() {
                   </p>
                   <p>${coin.current_price.toLocaleString()}</p>
                 </div>
-              </div>
+              </Link>
             </li>
           ))}
         </ul>
