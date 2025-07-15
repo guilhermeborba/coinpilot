@@ -58,6 +58,7 @@ export default function Home() {
           {filteredCoins.map((coin) => (
             <li
               key={coin.id}
+              data-testid="coin-card"
               className="border p-4 rounded shadow-sm hover:shadow-md transition"
             >
               <Link
