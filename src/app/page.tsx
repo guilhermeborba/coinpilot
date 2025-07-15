@@ -18,6 +18,13 @@ export default function Home() {
     )
   }, [data, debouncedSearch])
 
+  const formatPrice = (value: number) =>
+    new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    }).format(value)
+
+
   if (isLoading) return <p>Carregando...</p>
   if (isError) return <p>Erro ao carregar moedas</p>
 
@@ -54,7 +61,7 @@ export default function Home() {
                       debouncedSearch
                     )}
                   </p>
-                  <p>${coin.current_price.toLocaleString()}</p>
+                  <p>{formatPrice(coin.current_price)}</p>
                 </div>
               </Link>
             </li>
