@@ -24,9 +24,19 @@ export default function Home() {
       currency: 'USD',
     }).format(value)
 
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center h-64">
+        <p className="text-gray-400 animate-pulse">Carregando moedas...</p>
+      </div>
+    )
 
-  if (isLoading) return <p>Carregando...</p>
-  if (isError) return <p>Erro ao carregar moedas</p>
+  if (isError)
+    return (
+      <div className="flex justify-center items-center h-64">
+        <p className="text-red-400">Erro ao carregar moedas. Tente novamente.</p>
+      </div>
+    )
 
   return (
     <main className="p-6">
@@ -34,6 +44,7 @@ export default function Home() {
 
       <input
         type="text"
+        aria-label="Buscar moeda"
         placeholder="Buscar moeda..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
@@ -53,7 +64,7 @@ export default function Home() {
                 href={`/coin/${coin.id}`}
                 className="flex items-center gap-4"
               >
-                <img src={coin.image} alt={coin.name} className="w-8 h-8" />
+                <img src={coin.image} alt={`Logo da moeda ${coin.name}`} className="w-8 h-8" />
                 <div>
                   <p className="font-semibold">
                     {highlightSearchTerm(
