@@ -48,7 +48,7 @@ export default function Home() {
         placeholder="Buscar moeda..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="mb-6 w-full max-w-md p-2 border border-gray-600 rounded bg-black text-white"
+        className="mb-6 w-full max-w-md p-2 border border-gray-600 rounded bg-search"
       />
 
       {filteredCoins.length === 0 ? (
