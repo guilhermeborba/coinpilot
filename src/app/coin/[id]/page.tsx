@@ -3,8 +3,14 @@ import { notFound } from 'next/navigation'
 import Chart from '@/components/Chart'
 import { getCoinById, getMarketChart } from '@/services/coins'
 
+type CoinDetailPageProps = {
+  params: {
+    id: string
+  }
+}
+
 export default async function CoinDetailPage({ params }: { params: { id: string } }) {
-  const coinId = params.id
+  const { id: coinId } = await Promise.resolve(params)
 
   try {
     const coin = await getCoinById(coinId)
