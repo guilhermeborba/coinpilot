@@ -1,29 +1,24 @@
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
-import Chart from '@/components/Chart'
-import { getCoinById, getMarketChart } from '@/services/coins'
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import Chart from '@/components/Chart';
+import { getCoinById, getMarketChart } from '@/services/coins';
 
-type CoinDetailPageProps = {
-  params: {
-    id: string
-  }
-}
-
-export default async function CoinDetailPage({ params }: { params: { id: string } }) {
-  const { id: coinId } = await Promise.resolve(params)
+export default async function CoinDetailPage({ params }: any) {
+  
+  const coinId = (params as { id: string }).id;
 
   try {
-    const coin = await getCoinById(coinId)
-    if (!coin) return notFound()
+    const coin = await getCoinById(coinId);
+    if (!coin) return notFound();
 
-    const chartResponse = await getMarketChart(coinId, 7)
+    const chartResponse = await getMarketChart(coinId, 7);
     const chartData = chartResponse.prices.map(([timestamp, price]) => ({
       date: new Date(timestamp).toLocaleDateString('pt-BR', {
         day: '2-digit',
         month: '2-digit',
       }),
       price: Number(price.toFixed(2)),
-    }))
+    }));
 
     return (
       <div className="p-6">
@@ -51,9 +46,9 @@ export default async function CoinDetailPage({ params }: { params: { id: string 
           </section>
         )}
       </div>
-    )
+    );
   } catch (error) {
-    console.error('Erro ao carregar dados da moeda:', error)
-    return notFound()
+    console.error('Erro ao carregar dados da moeda:', error);
+    return notFound();
   }
 }
