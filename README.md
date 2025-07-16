@@ -34,8 +34,21 @@ npm run dev
 # Rode os testes unitários
 npm run test
 
-# Rode os testes E2E
-npx cypress open
+---
+
+```
+### Como rodar localmente
+
+```bash
+# Modo interativo local
+CYPRESS_BASE_URL=http://localhost:3000 npx cypress open
+
+# Modo headless local
+CYPRESS_BASE_URL=http://localhost:3000 npx cypress run
+
+# Modo headless contra a aplicação online
+CYPRESS_BASE_URL=https://coinpilot-git-main-guilhermeborbas-projects.vercel.app npx cypress run
+
 ```
 
 ---

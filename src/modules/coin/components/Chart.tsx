@@ -14,7 +14,7 @@ export default function Chart({ data }: { data: { date: string; price: number }[
           dataKey="price"
           stroke="#3b82f6"
           strokeWidth={2}
-          dot={false} // 👈 Desativa as bolinhas
+          dot={false}
         />
       </LineChart>
     </ResponsiveContainer>

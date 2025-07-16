@@ -1,6 +1,6 @@
 describe('Botão de tema', () => {
   it('alterna entre tema claro e escuro', () => {
-    cy.visit('http://localhost:3000')
+    cy.visit('/')
 
     cy.get('html').should('not.have.class', 'dark')
 
