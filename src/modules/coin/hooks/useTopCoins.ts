@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { getTopCoins } from '@/services/coins'
+import { getTopCoins } from '../../../modules/coin/services/coins'
 
 export function useTopCoins() {
   return useQuery({

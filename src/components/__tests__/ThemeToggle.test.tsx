@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import { ThemeProvider } from '@/contexts/ThemeContext'
-import { ThemeToggle } from '../ThemeToggle'
+import { ThemeProvider } from '../../shared/contexts/ThemeContext'
+import { ThemeToggle } from '../../shared/components/ThemeToggle'
 
 describe('ThemeToggle', () => {
   it('alterna o tema entre claro e escuro', () => {

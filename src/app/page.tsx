@@ -1,9 +1,9 @@
 'use client'
 
-import { useTopCoins } from '@/hooks/useTopCoins'
+import { useTopCoins } from '../modules/coin/hooks/useTopCoins'
 import { useMemo, useState } from 'react'
-import { useDebounce } from '@/hooks/useDebounce'
-import { highlightSearchTerm } from '@/utils/highlightSearchTerm'
+import { useDebounce } from '../shared/hooks/useDebounce'
+import { highlightSearchTerm } from '../shared/utils/highlightSearchTerm'
 import Link from 'next/link'
 
 export default function Home() {

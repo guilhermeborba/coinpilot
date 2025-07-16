@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import Chart from '@/components/Chart';
-import { getCoinById, getMarketChart } from '@/services/coins';
+import Chart from '../../../modules/coin/components/Chart';
+import { getCoinById, getMarketChart } from '../../../modules/coin/services/coins';
 
 export default async function CoinDetailPage({ params }: any) {
   

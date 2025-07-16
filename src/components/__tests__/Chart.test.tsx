@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import Chart from '../Chart'
+import Chart from '../../modules/coin/components/Chart'
 
 describe('Chart', () => {
   it('deve renderizar o componente sem lançar erro', () => {
